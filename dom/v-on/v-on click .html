@@ -1,0 +1,52 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{contador}}</p>
+    <button v-on:click="somando">Somar +1</button>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0
+        },
+        methods: {
+            somando(){
+                this.contador++
+            }
+        }
+    })
+</script>
+
+<!-- 
+    A diretiva `v-on` é usada no Vue.js para ouvir eventos do DOM e responder a eles com a execução de métodos ou funções definidos na instância Vue. Esta diretiva permite que você crie interatividade em sua aplicação, respondendo a ações do usuário, como cliques de mouse, toques na tela, pressionamentos de teclas e outros eventos DOM.
+
+Aqui está como você pode usar a diretiva `v-on`:
+
+```html
+<button v-on:click="minhaFuncao">Clique em mim</button>
+```
+
+Neste exemplo, a diretiva `v-on:click` está sendo usada para ouvir o evento de clique (`click`) no botão. Quando o botão é clicado, o método `minhaFuncao` na instância Vue associada será chamado.
+
+Aqui estão alguns pontos-chave sobre `v-on`:
+
+1. **Sintaxe**: A diretiva `v-on` é geralmente usada com o nome do evento que você deseja ouvir, seguido de um valor que é a expressão a ser executada quando o evento ocorre. No exemplo acima, `v-on:click` está ouvindo o evento de clique do botão e executando a função `minhaFuncao` quando o clique ocorre. Você também pode usar uma forma abreviada, que é `@`:
+
+   ```html
+   <button @click="minhaFuncao">Clique em mim</button>
+   ```
+
+2. **Eventos Personalizados**: Você pode criar e ouvir eventos personalizados usando `v-on`. Isso permite que você comunique e sincronize componentes Vue em sua aplicação.
+
+3. **Passagem de Argumentos**: Você pode passar argumentos para o método chamado usando `v-on`. Por exemplo, você pode passar o evento como um argumento para a função:
+
+   ```html
+   <button @click="minhaFuncao($event)">Clique em mim</button>
+   ```
+
+   Dessa forma, a função `minhaFuncao` receberá o objeto de evento como um argumento.
+
+A diretiva `v-on` é fundamental para criar aplicativos interativos e responsivos no Vue.js, pois permite que você responda a ações do usuário e eventos do DOM de maneira simples e eficaz. Ela é frequentemente usada em combinação com métodos definidos na instância Vue para adicionar funcionalidades personalizadas à sua aplicação.
+ -->

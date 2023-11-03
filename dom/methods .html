@@ -1,0 +1,39 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p>        
+        {{ saudacao() }} <!--  sempre tudo que for retornado do framework Vue será uma string -->
+    </p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app', 
+        methods: {
+            saudacao() {
+                return 'retornando um método qualquer'
+            }
+        }
+    })    
+</script>
+
+<!-- 
+    
+Métodos: Os métodos no Vue.js são definidos no objeto methods. Eles contêm funções que podem ser chamadas para realizar ações ou manipular dados. Os métodos são usados para adicionar lógica personalizada à sua aplicação e podem ser chamados em resposta a eventos do DOM, interações do usuário ou em qualquer outro contexto onde a lógica seja necessária.
+
+O objeto methods é usado para definir métodos que podem ser chamados na instância Vue. 
+
+methods: O objeto methods permite que você defina funções ou métodos personalizados que podem ser usados para executar lógica no contexto da instância Vue. 
+
+saudacao() { 
+    return 'retornando um método qualquer' 
+}
+    Isso define o método saudacao. Quando esse método é chamado, ele simplesmente retorna a string 'retornando um método qualquer'. 
+
+O principal benefício de definir métodos dentro do objeto methods é que esses métodos podem ser chamados a partir do seu modelo de dados ou de eventos do DOM. 
+Isso permite que você mantenha sua lógica separada do seu HTML e torne sua aplicação mais modular e fácil de manter. 
+Por exemplo, você pode usar {{ saudacao() }} para exibir o resultado do método na sua página HTML ou desencadear o método em resposta a um evento, como um clique de botão.
+
+Em resumo, o objeto methods é usado para definir funções personalizadas que podem ser chamadas e usadas no contexto da instância Vue, permitindo que você adicione lógica personalizada à sua aplicação Vue.js. 
+
+-->

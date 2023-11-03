@@ -1,0 +1,31 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p>Valor atual: {{valor}}</p>
+    <p>{{texto()}}</p>
+    <button @click="somar">Somar</button>
+    <button @click="diminuir">Diminuir</button>
+</div>
+
+<script>
+    new Vue({
+        el: '#app', 
+        data: {
+            valor: 0
+        },
+        whatch:{
+            
+        },
+        methods:{
+            somar(){
+                this.valor++
+            },
+            diminuir(){
+                this.valor--
+            },
+            texto(){
+                return this.valor > 4 ? "Valor maior que 4" : "Valor menor que 4"
+            }
+        }        
+    })    
+</script>

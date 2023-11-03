@@ -1,0 +1,21 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p>        
+        {{ saudacao() }} <!--  sempre tudo que for retornado do framework Vue será uma string -->
+    </p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app', 
+        data: {
+            titulo: "Novo titulo de Vue"
+        },
+        methods: {
+            saudacao() {
+                return this.titulo
+            }
+        }
+    })    
+</script>

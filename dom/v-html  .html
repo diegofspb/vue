@@ -1,0 +1,26 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p v-html="linkhtml"></p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            linkhtml: '<a href="http://google.com.br">Google</a>'
+        }
+    })
+</script>
+
+<!-- 
+    A diretiva `v-html` é uma das diretivas especiais do Vue.js que permite renderizar HTML dinamicamente dentro de um elemento HTML. Isso é útil quando você deseja injetar conteúdo HTML dinâmico em um elemento, mas você deve usá-lo com cuidado, pois pode abrir brechas de segurança se o conteúdo for fornecido por fontes não confiáveis.
+
+
+
+Neste exemplo, o elemento `<div>` está associado à propriedade `linkhtml` na instância Vue. O conteúdo de `linkhtml` é interpretado como HTML e renderizado dentro do elemento. Qualquer marcação HTML dentro da variável `linkhtml` será renderizada como elementos HTML, em vez de ser tratada como texto simples.
+
+É importante observar que o uso da diretiva `v-html` pode expor seu aplicativo a ataques de injeção de código se o conteúdo HTML for proveniente de fontes não confiáveis, como entrada do usuário. Para evitar isso, certifique-se de que o conteúdo injetado seja seguro e confiável. Você também pode considerar o uso de outras técnicas para evitar problemas de segurança, como a sanitização do conteúdo HTML antes de usá-lo com `v-html`.
+
+Em resumo, a diretiva `v-html` permite a renderização de conteúdo HTML dinâmico no seu template, mas deve ser usada com cautela para evitar vulnerabilidades de segurança. Certifique-se de que o conteúdo HTML injetado seja seguro e confiável.
+ -->

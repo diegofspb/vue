@@ -1,0 +1,60 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p>        
+        <a v-bind:href="link">Google</a>
+    </p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app', 
+        data: {
+            link: 'http://google.com.br'
+        },        
+    })    
+</script>
+
+
+<!-- 
+    Entender o `v-bind` em Vue é essencial, pois ele é usado para associar dinamicamente valores a atributos HTML, o que é fundamental para tornar suas aplicações Vue interativas e responsivas. O `v-bind` é frequentemente usado para atualizar atributos de elementos HTML com base em dados da instância Vue. Vou explicar como funciona o `v-bind`:
+
+O `v-bind` é uma diretiva em Vue que permite que você associe dinamicamente valores de propriedades da instância Vue a atributos HTML. Aqui estão os princípios básicos:
+
+1. **Sintaxe**: 
+
+    A sintaxe do `v-bind` é geralmente usada como um atributo em uma tag HTML com o prefixo `v-bind:` ou seu atalho `:`. 
+    Você especifica o atributo HTML que deseja associar, seguido de `=` e, em seguida, o valor que você deseja associar usando uma expressão Vue.
+
+   Exemplo com o atributo `src` de uma imagem:
+
+   ```html
+   <img v-bind:src="imagemURL">
+   ```
+
+   Neste exemplo, estamos usando `v-bind` para associar dinamicamente o atributo `src` da tag `<img>` ao valor da propriedade `imagemURL` na instância Vue.
+
+2. **Usos comuns**:
+
+    - **Associar atributos HTML a dados Vue**: 
+
+        Como no exemplo acima, você pode usar `v-bind` para associar atributos como `src`, `href`, `class`, `style` e muitos outros aos dados da instância Vue. 
+        Isso permite que esses atributos sejam atualizados automaticamente quando os dados subjacentes são alterados, mantendo a interface do usuário sincronizada com o estado da aplicação.
+
+   - **Passar valores dinâmicos a componentes**: 
+   
+        O `v-bind` é frequentemente usado ao renderizar componentes Vue, permitindo que você passe valores dinâmicos como props para esses componentes.
+
+   - **Ligação de atributos em loops ou condicionais**: 
+   
+        Você pode usar `v-bind` em estruturas de repetição (como `v-for`) ou em elementos condicionais (como `v-if`) para criar elementos HTML de forma dinâmica e associar atributos com base em dados.
+
+   - **Manipulação do DOM**: 
+   
+        O `v-bind` também pode ser usado para manipular o DOM diretamente, por exemplo, associando valores aos atributos `id`, `data-*`, etc., com base em lógica de sua aplicação.
+
+O `v-bind` é uma das diretivas mais poderosas do Vue e é uma ferramenta fundamental para criar aplicativos interativos e reativos. 
+Ele permite que você atualize dinamicamente o conteúdo e os atributos HTML com base no estado de sua aplicação Vue, 
+o que é essencial para criar uma interface de usuário dinâmica e responsiva. 
+
+-->

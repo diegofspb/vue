@@ -1,0 +1,26 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p>
+        {{ titulo }}  <!--  sempre tudo que for retornado do framework Vue será uma string -->
+    </p>
+</div>
+
+<script>
+            // el no seu código se refere ao elemento do DOM (Document Object Model) que a instância do Vue.js está "ligada" ou "montada". 
+            // el: '#app' está ligando a instância Vue ao elemento com o id igual a 'app'. 
+            // Isso significa que o Vue.js irá controlar e renderizar seu modelo de dados dentro desse elemento específico no DOM. 
+            // Qualquer manipulação de dados feita dentro da instância Vue será refletida no elemento associado.
+
+    new Vue({
+        el: '#app', 
+        data: {
+            titulo: 'Usando Vue - aula'
+        }
+    })            
+</script>
+
+
+<!-- 
+    Propriedades (Dados): As propriedades no Vue.js são representadas pelo objeto data dentro de uma instância Vue. Essas propriedades contêm os dados que você deseja que a instância Vue gerencie. Quando você atualiza os dados, o Vue automaticamente reage e atualiza a interface do usuário (View) para refletir essas mudanças. 
+-->

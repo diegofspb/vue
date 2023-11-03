@@ -1,0 +1,37 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p v-once>
+        {{ titulo }}
+    </p>
+    <p>
+        {{ funcao()}}
+    </p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Novo titulo aula V-once'
+        },
+        methods:{
+            funcao(){
+                this.titulo = 'titulo alteardo'
+                return this.titulo
+            }
+        }
+    })
+</script>
+
+<!-- 
+    A diretiva `v-once` é uma diretiva especial no Vue.js que permite renderizar um elemento ou componente apenas uma vez e evitar futuras atualizações nesse elemento. 
+    Isso é útil quando você tem partes do seu template que não precisam ser reavaliadas ou atualizadas após a renderização inicial, economizando assim tempo de processamento.
+
+No exemplo deste código o primeiro parágrafo está usando o v-once, ou seja, ele não será atualizado após receber o primeiro dado vindo do VUE, porém o segundo será sim atualizado
+
+É importante notar que o uso excessivo da diretiva `v-once` pode prejudicar a reatividade do seu aplicativo, pois os elementos marcados com `v-once` não serão atualizados quando os dados subjacentes forem alterados. Portanto, você deve usá-lo com moderação e apenas em partes do seu template que são verdadeiramente estáticas.
+
+A diretiva `v-once` pode ser útil em situações onde você deseja otimizar o desempenho, garantindo que determinados elementos não sejam reavaliados desnecessariamente, mas é importante equilibrar seu uso com a necessidade de manter a reatividade quando ela é realmente necessária. 
+
+-->

@@ -1,0 +1,51 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <input type="text" v-on:keyup.enter="emitirAlertaTeclaEnter">
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        methods:{
+            emitirAlertaTeclaEnter(){
+                alert("Você pressionou a tecla 'enter' no teclado")
+            }
+        }
+    })
+</script>
+
+
+
+
+<!-- 
+    Claro, aqui está uma explicação mais detalhada da diretiva `v-on:keyup` no Vue.js, incluindo o uso de modificadores de tecla:
+
+A diretiva `v-on:keyup` é usada para ouvir eventos de pressionamento de tecla (keyup) em elementos do DOM dentro de um aplicativo Vue.js. Ela permite que você execute funções ou métodos quando o usuário pressionar uma tecla e, mais especificamente, quando a tecla é liberada (key up).
+
+Aqui está um exemplo de como você pode usar a diretiva `v-on:keyup`:
+
+```html
+<input v-on:keyup="minhaFuncao">
+```
+
+Neste exemplo, o elemento `input` está usando `v-on:keyup` para ouvir o evento de pressionamento de tecla. Quando um usuário pressionar uma tecla no campo de entrada e liberar a tecla, a função `minhaFuncao` definida na instância Vue será chamada.
+
+Você também pode especificar modificadores de tecla para personalizar o comportamento da diretiva `v-on:keyup`. Alguns dos modificadores de tecla mais comuns são:
+
+- `.enter`: A diretiva será acionada apenas quando a tecla Enter for pressionada.
+- `.tab`: A diretiva será acionada apenas quando a tecla Tab for pressionada.
+- `.delete`: A diretiva será acionada apenas quando a tecla Delete ou Backspace for pressionada.
+- `.esc`: A diretiva será acionada apenas quando a tecla Esc for pressionada.
+
+Você pode usar esses modificadores de tecla da seguinte maneira:
+
+```html
+<input v-on:keyup.enter="minhaFuncao">
+```
+
+Neste caso, a função `minhaFuncao` será chamada somente quando a tecla Enter for pressionada. Você pode combinar vários modificadores de tecla para ouvir combinações específicas de teclas.
+
+A diretiva `v-on:keyup` é útil em situações em que você deseja permitir que os usuários interajam com sua aplicação por meio do teclado, como em formulários ou outros elementos de entrada de dados. Ela é uma das várias diretivas de eventos que o Vue oferece para criar interatividade em sua aplicação. O uso de modificadores de tecla torna a captura de eventos de tecla ainda mais específica e flexível.
+
+ -->
