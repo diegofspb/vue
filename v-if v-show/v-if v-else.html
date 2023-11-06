@@ -1,6 +1,11 @@
 <meta charset="UTF-8">
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
+<!-- 
+    
+    - v-if se baseia em um valor booleano e efetivamente retira o(s) elemento(s) do código html que ele estiver manipulando
+    - v-show também se baseia em valor booleano, porém ele usa css para esconder os elementos que estiver manipulando
+-->
 <div id="app">
     <p v-if="logado">Usuário: {{nome}} está logado!</p>
     <p v-else-if="anonimo">Usuário anônimo</p>

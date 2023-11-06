@@ -1,0 +1,161 @@
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+
+<div id="app1">
+    <contador1></contador1>
+    <contador1></contador1>
+    <contador1></contador1>
+</div>
+<hr>
+<div id="app2">
+  <app-contador2></app-contador2>
+  <app-contador2></app-contador2>
+  <app-contador2></app-contador2>
+</div>
+
+<script>
+
+    const contador = {
+      template:`
+          <div id="app">
+              <span>{{contador}}</span>
+              <button @click="contador++">+</button>
+              <button @click="contador--">-</button>
+          </div>        
+      `,
+      data(){
+          return {
+              contador:0
+          }
+      }
+    }   
+
+    new Vue({
+        el:'#app1',
+        components:{
+          contador1: contador
+        }
+    })
+
+    new Vue({
+        el:'#app2',
+        components: {
+          'app-contador2': contador   // o JS não aceita como nome de component app-contador2, por isso basta colocar entre aspas que pode utilizar
+        }
+    })
+
+</script>
+
+
+<!-- 
+    Explicação CHAT GPT sobre component:
+
+    Em Vue.js, um componente é uma parte reutilizável e autônoma da sua interface de usuário. Os componentes são a unidade fundamental da construção de aplicativos Vue, permitindo que você divida sua interface em partes menores e gerenciáveis. Isso facilita a criação de aplicativos complexos e organizados.
+
+Aqui está um guia passo a passo sobre como criar e usar componentes em Vue.js:
+
+### Passo 1: Crie um novo componente
+
+Para criar um novo componente Vue, você pode usar a opção `Vue.component` ou criar um componente Vue de arquivo único (`.vue`). A abordagem mais comum é criar componentes de arquivo único, pois eles oferecem uma estrutura organizada e facilitam o desenvolvimento. Vou explicar como criar um componente de arquivo único:
+
+1. Crie um novo arquivo `.vue` para o seu componente. Por exemplo, `MeuComponente.vue`.
+
+2. No arquivo `.vue`, defina o componente da seguinte maneira:
+
+```vue
+<template>  
+  <div>
+    <h1>{{ titulo }}</h1>
+    <p>{{ descricao }}</p>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      titulo: 'Meu Componente',
+      descricao: 'Este é um componente Vue.js.'
+    };
+  }
+};
+</script>
+
+<style scoped>
+/* Estilos específicos para este componente */
+</style>
+```
+
+- O bloco `<template>` contém o código HTML do seu componente.
+- O bloco `<script>` contém a lógica do componente, incluindo dados, métodos e outros recursos.
+- O bloco `<style>` contém estilos CSS específicos para este componente.
+
+### Passo 2: Registrar e usar o componente
+
+Depois de criar o componente, você precisa registrá-lo em um componente pai para usá-lo. Aqui está um exemplo de como fazer isso em um componente pai:
+
+```vue
+<template>
+  <div>
+    <h1>Meu Aplicativo Vue</h1>
+    <MeuComponente></MeuComponente>
+  </div>
+</template>
+
+<script>
+import MeuComponente from './MeuComponente.vue';
+
+export default {
+  components: {
+    MeuComponente
+  }
+};
+</script>
+```
+
+- Importe o componente que você deseja usar no componente pai.
+- Use o componente no template do componente pai, como `<MeuComponente></MeuComponente>`.
+- Registre o componente importado na opção `components` do componente pai.
+
+### Passo 3: Renderize o aplicativo Vue
+
+Por fim, você precisa instanciar e renderizar o aplicativo Vue no elemento raiz. Isso geralmente é feito no arquivo principal do aplicativo, como `main.js`.
+
+```javascript
+import { createApp } from 'vue';
+import App from './App.vue';
+
+createApp(App).mount('#app');
+```
+
+### Passo 4: Estilize o componente (opcional)
+
+Você pode adicionar estilos CSS específicos para o seu componente no bloco `<style>` do arquivo `.vue` do componente. Os estilos serão encapsulados para que não afetem outros componentes.
+
+### Passo 5: Use props para personalização (opcional)
+
+Você pode passar dados personalizados de um componente pai para um componente filho usando `props`. Isso permite que você reutilize o componente com diferentes dados.
+
+No componente filho (MeuComponente.vue), adicione uma seção `props` ao bloco `<script>`:
+
+```vue
+<script>
+export default {
+  props: {
+    titulo: String,
+    descricao: String
+  }
+};
+</script>
+```
+
+Em seguida, você pode usar o componente filho no componente pai e passar dados personalizados:
+
+```vue
+<MeuComponente titulo="Meu Componente Personalizado" descricao="Este é um componente Vue.js personalizado." />
+```
+
+Esses são os conceitos básicos de criação e uso de componentes Vue.js. Com componentes, você pode criar interfaces de usuário reutilizáveis e organizadas, tornando o desenvolvimento de aplicativos Vue mais eficiente e escalável.
+
+ -->

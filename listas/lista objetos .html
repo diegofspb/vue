@@ -1,0 +1,44 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<div id="app">
+    <h5> exemplo 1 </h5>
+    <p>{{ objetos }}</p>
+    <hr>
+
+    <h5> exemplo 2 </h5>
+    <p v-for="objeto in objetos">{{ objeto }}</p>
+    <hr>
+
+    <h5> exemplo 3 </h5>
+    <p v-for="(objeto, chave) in objetos">{{ chave }} : {{ objeto }}</p>
+    <hr>
+
+    <h5> exemplo 4 </h5>
+    <p v-for="(objeto, chave) in objetos">Nome:{{ objeto.nome }}, idade:{{ objeto.idade }}, peso:{{ objeto.peso }}</p>
+    <hr>
+
+    <h5> exemplo 5 </h5>
+    <ul v-for="(objeto, chave) in objetos">
+        <li>Nome:{{ objeto.nome }}, idade:{{ objeto.idade }}, peso:{{ objeto.peso }}</li>
+    </ul>
+    <hr>
+
+    <h5> exemplo 6 - usando índice, chave e objeto </h5>
+    <div v-for="objeto in objetos">
+        <div  v-for="(valor, chave, indice) in objeto">{{ indice }} : {{ chave }} = {{ valor }}</div>
+        <hr>
+    </div>
+</div>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            objetos:[
+                {nome:'Maria', idade:22, peso:50},
+                {nome:'João', idade:65, peso:60},
+                {nome:'Fulano', idade:55, peso:80}
+            ]
+        }
+    })
+</script>
+

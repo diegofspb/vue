@@ -1,0 +1,14 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p v-for="(nome, i) in nomes">{{i}} {{nome}}</p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app', 
+        data: {
+            nomes: ['Maria', 'João', 'Fulano']
+        },        
+    })    
+</script>

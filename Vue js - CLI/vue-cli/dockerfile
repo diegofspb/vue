@@ -1,0 +1,16 @@
+# Use a imagem oficial do Node.js como base
+FROM node:latest
+
+# Configure o local de trabalho
+WORKDIR /app
+
+# Copie o código-fonte do Vue.js para o contêiner
+COPY . .
+
+# Instale as dependências
+RUN npm install
+
+# Exponha a porta para o aplicativo Vue.js
+EXPOSE 8080
+
+CMD ["npm", "run", "serve"]

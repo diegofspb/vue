@@ -1,0 +1,21 @@
+version: '3.8'
+networks:
+    vue-networks:
+        driver: bridge
+services: 
+
+  vue-app:
+    build:
+      context: ./aula-vue
+      dockerfile: Dockerfile
+    container_name: aula-vue
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./aula-vue:/app
+    environment:
+      - NODE_ENV=development
+
+
+  
+
