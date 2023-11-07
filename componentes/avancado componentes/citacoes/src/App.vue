@@ -1,16 +1,38 @@
 <template>
 	<div id="app">
-		<Citacoes />
-		<Sobre />
+		<!-- 
+			Esta era a forma inicial da aula que exibe na home os dois compoentes abaixo:
+
+			<Citacoes />
+			<Sobre /> 
+
+			porém depois a aula evoluiu para você poder escolher qual componente exibir ficando:
+		-->
+		<span>
+			<button @click="componente = 'Citacoes'">Citacoes</button> <!-- Citacoes e Sobre são os nomes dados aos imports dos componentes -->
+			<button @click="componente = 'Sobre'">Sobre</button>
+		</span>
+
+		<keep-alive>
+			<component :is="componente" />  <!-- isso aqui é o que será exibido na home, porém vc pode alternar nos botões acima -->
+			<!-- Para usar a diretiva is em um componente Vue, você deve fornecer o nome do componente como uma string -->
+		</keep-alive>
+		<!-- keep-alive faz com que o componente não reja reiniciado quando vc saí dele, imagino que seja similar a quando você está digitando algo em um formulário e ao sair e voltar o componente ainda esteja com os dados digitados -->
+
 	</div>
 </template>
 
 <script>
-import Citacoes from './components/Citacoes'
-import Sobre from './components/Sobre'
+import Citacoes from './components/CitacoesComponente'
+import Sobre from './components/SobreComponente'
 
 export default {
-	components: { Citacoes, Sobre }
+	components: { Citacoes, Sobre },
+	data(){
+		return{
+			componente: 'Sobre'
+		}
+	}
 }
 </script>
 
