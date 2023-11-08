@@ -6,6 +6,8 @@
 				<div class="cabecalho">Formulário</div>
 				<Rotulo nome="E-mail">
 					<input type="text" v-model.lazy.trim="usuario.email"> 
+				</Rotulo>
+
 					<!-- 
 						lembrando que v-model = v-bind + v-on 
 						v-bind = linka o valor do atributo em data() com o valor do elemento html
@@ -16,9 +18,8 @@
 							.lazy = faz com que o v-model só replique os dados que estão sendo digitdos, quando o usuário mudar de campo
 							.trim = remove espaços vazios
 							.number = mesmo vc criando um input type="number" o que você digita é string, o '.number' garante que o que vc digitar será numero
-					-->
-					
-				</Rotulo>
+					-->					
+				
 				<Rotulo nome="Senha">
 					<input type="password" v-model="usuario.senha">
 				</Rotulo>
@@ -49,7 +50,7 @@
 					</select>
 				</Rotulo>
 				<Rotulo nome="Primeira Reclamação?">
-					<Escolha />
+					<Escolha v-model="escolha"/>
 				</Rotulo>
 				<hr>
 				<button>Enviar</button>
@@ -83,7 +84,7 @@
 					<span> {{prioridade}} </span>
 				</Rotulo>
 				<Rotulo nome="Primeira Reclamação?">
-					<span>???</span>
+					<span> {{ escolha }}</span>
 				</Rotulo>
 			</div>
 		</div>
@@ -96,7 +97,26 @@
 
 export default {
 	name: 'app',
-	components: { Rotulo, Escolha }
+	components: { Rotulo, Escolha },
+	data(){
+		return{
+			usuario:{
+				email: '',
+				senha: '',
+				idade: '',
+			},
+			mensagem: '',
+			usandoRadio: '',
+			prioridade: 1,
+			prioridades: [
+				{codigo:1, nome: 'Baixa'},
+				{codigo:2, nome: 'Moderada'},
+				{codigo:3, nome: 'Alta'},
+			],
+			usandoCheckbox : [],
+			escolha: true
+		}
+	}
 }
 </script>
 
