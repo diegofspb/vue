@@ -68,13 +68,13 @@
 </template>
 
 <script>
-import Rotulo from './components/RotuloComponente.vue'
-import Escolha from './components/EscolhaComponente.vue'
+	import Rotulo from './components/RotuloComponente.vue'
+	import Escolha from './components/EscolhaComponente.vue'
 
-export default {
-	name: 'app',
-	components: { Rotulo, Escolha }
-}
+	export default {
+		name: 'app',
+		components: { Rotulo, Escolha }
+	}
 </script>
 
 <style>
