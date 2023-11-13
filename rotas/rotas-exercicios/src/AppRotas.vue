@@ -1,7 +1,10 @@
 <template>
 	<div id="app">
 		<h1>Rotas com VueRouter</h1>
-		<router-view />
+		<router-view name="menu"></router-view>
+		<!-- quando você usa <router-view /> sem especificar um nome, o nome padrão é "default" -->
+		<router-view /> 		
+		<router-view name="menuInferior"></router-view>
 	</div>
 </template>
 
