@@ -1,0 +1,58 @@
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+<div id="app">
+    <h1>{{title}}</h1>
+    {{ fullName }}
+    <hr>
+    <user-profile first-name="John" last-name="Snow" age="35"></user-profile> 
+    <!-- o user-profile está dentro da div de #app e consegue setar os valores acima por causa do 'props' -->
+
+</div>
+
+<template id="userProfile">
+    <div class="card shadow-sm">
+        <div class="class card-body">
+           <h1> Usando a propridade <span style="color: red;">Props</span> </h1>
+            <p>Primeiro nome: {{ firstName}}</p>
+            <p>Segundo nome: {{ lastName}}</p>
+            <p>idade: {{ age }}</p>
+        </div>
+    </div>
+</template>
+
+<script>
+    // Correção: use o método Vue.createApp para criar o aplicativo e, em seguida, chame .mount()
+    const app = Vue.createApp({
+        data() {
+            return {
+                title: 'Usando a propriedade Computed',
+                firstName: 'Joao',
+                lastName: 'Fulano de Tal',
+            };
+        },
+        computed:{  // este Objeto cria uma cache, então toda vez que for chamado o fullName , ele será aproveitado pela cache
+            fullName(){
+                const fullName = `${this.firstName} ${this.lastName}`;
+                return fullName;
+            }
+        }
+    });
+
+    app.component('user-profile',{
+        props:{
+            firstName: String,
+            lastName: String,
+            Age: Number
+        },
+        data(){
+            return{
+
+            }
+        },
+        template: '#userProfile'
+    })
+
+    // Monta o aplicativo no elemento com o ID 'app'
+    app.mount('#app');
+</script>

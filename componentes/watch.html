@@ -1,0 +1,42 @@
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+<div id="app">
+    <h1>{{title}}</h1>
+</div>
+
+<script>
+    // Correção: use o método Vue.createApp para criar o aplicativo e, em seguida, chame .mount()
+    const app = Vue.createApp({
+        data() {
+            return {
+                title: 'Usando a propriedade Watch',
+                user:{
+                    firstName: 'Joao',
+                    lastName: 'Fulano de Tal',
+                }
+            };
+        },
+        watch:{
+            title(tituloNovo, tituloVelho){
+                console.log('Titulo alterado!');
+                console.log(tituloNovo);
+                console.log(tituloVelho);
+            },
+            // user(){ se alterar e o atributo for um objeto, não será executado o watch, tem que criar uma função handler()
+            //     console.log('Usuário alterado!')
+            // }
+            user:{
+                // immediate: true    esse caso é porque o watch é executado por ultimo, deixando immediate: true ele é iniciado primeiro
+                deep: true, // serve para que o watch possa observar o objeto profundamente = todos os atributos do objeto
+                handler(){
+                    console.log('Usuário alterado!')
+                }
+            }
+        }
+
+    });
+
+    // Monta o aplicativo no elemento com o ID 'app'
+    app.mount('#app');
+</script>

@@ -1,10 +1,10 @@
 import Vue from 'vue'
-import App from './App.vue'
+import App from './AppVuex.vue'
 
 Vue.config.productionTip = false
 
-import Painel from './components/Painel'
-Vue.component('Painel', Painel)
+import Painel from './components/PainelComponente'
+Vue.component('PainelComponente', Painel)
 
 Vue.filter('dinheiro', valor => {
 	return `R$ ${parseFloat(valor).toFixed(2)}`.replace('.', ',')

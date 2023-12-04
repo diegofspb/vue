@@ -25,8 +25,8 @@ Abaixo está um exemplo de como registrar um componente para ser utilizado globa
 
 Vue.config.productionTip = false
 
-new Vue({
-  router, //router é importado, indicando que a aplicação usa o Vue Router.
+new Vue({ // new Vue é a principal instancia do vue de toda a plicação
+  router, //router é importado, indicando que o Vue Router será utilizado em toda aplicação
   render: h => h(App),
 }).$mount('#app')
 
