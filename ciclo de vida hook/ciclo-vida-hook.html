@@ -1,0 +1,44 @@
+<head>
+    <title>Ciclo de Vida (hook)</title>
+</head>
+
+<script src="http://unpkg.com/vue@next"></script>
+
+<body>
+    <div id="app">
+        <h1>{{titulo}}</h1>
+    </div>
+
+    <script>
+
+        const app = Vue.createApp({
+
+            data(){
+                return{
+                    titulo:'Aprendendo ciclo de vida em Vue - Hook'
+                }
+            },
+
+            // Hooks: beforeCreate(),  created(),  beforeMount(), mounted()
+            
+                            // FASE DE CRIAÇÃO
+
+            beforeCreate(){ // antes de criar o elemento
+                
+                console.log('beforeCreate (ANTES de Criar o elemento):\n não é possível acessar o atributo, pois o elemento ainda não foi criado.\n exemplo: titulo =', this.titulo)
+            },
+            created(){ // depois de criar o elemento
+                console.log('created (DEPOIS de Criar o elemento):\n agora é possível acessar o atributo.\n exemplo: title = ', this.titulo)
+            },
+
+                            //FASE DE MONTAR O ELEMENTO
+            beforeMount(){
+                console.log('beforeMount(antes de montar o elemento), não é possível ainda acessar o elemento $el. elemento = ', this.$el);
+            },
+            mounted(){
+                console.log('mounted(montando o elemento), agora é possível acessar o elemento $el. elemento =', this.$el, );
+            }
+        }).mount('#app')
+    </script>
+
+</body>
