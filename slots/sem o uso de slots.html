@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slots</title>
+</head>
+<script src="http://unpkg.com/vue@next"></script>
+<body>
+
+    <div id="app">
+        <h1>{{title}}</h1>
+        <app-button></app-button>
+        <app-button text-button="other name button"></app-button>
+    </div>
+
+    <template id="appButton">
+        <button>
+            {{textButton}}
+        </button>
+    </template>
+
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return{
+                    title:'trabalhando com slots',
+                }
+            }
+        });
+        
+        app.component('app-button', {
+            template: '#appButton',
+            props:{
+                textButton:{
+                    type: String,
+                    default: 'My button',
+                }                
+            }
+        })
+        
+        app.mount('#app');
+
+    </script>
+    
+</body>
+</html>

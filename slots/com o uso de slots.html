@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slots</title>
+</head>
+<script src="http://unpkg.com/vue@next"></script>
+<body>
+
+    <div id="app">
+        <h1>{{title}}</h1>
+        <app-button>nome qualquer 1</app-button>
+        <br><br>
+        <app-button> <b>nome qualquer 2</b> </app-button>
+        <br><br>
+        <app-button></app-button>
+        <!-- 
+            com o uso do slot é possível agora estilizar o nome do botão ou fazer outras coisas
+            note que sem o uso do <slot> você ficaria limitado a alterar o style do botão diretamente no props
+            e isso iria afetar todos os botões, já que no props vc diria um comportamente único padrão
+            para toda vez que o componente <app-button> for utilizado
+        -->
+    </div>
+
+    <template id="appButton">
+        <button>
+            <slot> value default </slot>
+            <!-- {{textButton}} no lugar de usar a props, vamos usar o slot-->
+        </button>
+    </template>
+
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return{
+                    title:'trabalhando com slots',
+                }
+            }
+        });
+        
+        app.component('app-button', {
+            template: '#appButton',
+            // no lugar de usar a props, vamos usar o slot
+            // props:{    
+            //     textButton:{
+            //         type: String,
+            //         default: 'My button',
+            //     }                
+            // }
+        })
+        
+        app.mount('#app');
+
+    </script>
+    
+</body>
+</html>
