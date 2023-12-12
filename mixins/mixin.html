@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mixins</title>
+</head>
+<body>
+    
+    <div id="app">
+        <h1></h1>
+    </div>
+
+    <!-- 
+        - Um mixin é uma forma de reutilizar lógica ou funcionalidade em vários componentes;
+        - Um mixin é um objeto que contém opções de componente, como data, methods, computed, etc.,
+        - Essas opções são mescladas (merged) com as opções do componente que está usando o mixin.
+     -->
+
+    <script src="http://unpkg.com/vue@next"></script>
+    <script>
+
+        const meuMixin = {
+            data(){
+                return{
+                    msg: "meu mixin",
+                }
+            }
+        };
+
+        const app = Vue.createApp({           
+
+            created(){
+                console.log(this.msg);
+            }
+        });
+
+        
+        app.mixin(meuMixin); // registrando o mixin de forma global, se fosse dentro do componente acima, seria registrado de forma local
+        app.mount('#app');
+
+    </script>
+
+</body>
+</html>
