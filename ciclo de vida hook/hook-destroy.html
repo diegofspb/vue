@@ -1,10 +1,58 @@
 
-<head>Hook Destroy</head>
+<head>
+    <title>Hook Destroy</title>
+</head>
 
 <body>
     <div id="app">
-    
+
+        <h1>{{title}}</h1>
+
+        <user v-if="showComponent"></user>
+        <!-- 
+            interessante, quando você para de usar o componente ele entra em faze de destruição
+            importante, pois quando você usa bibliotecas de terceiros e ao deixar de utilizar aquela determinada
+            biblioteca, se não finalizar ela, ela ficará na memória e vai se acumulando com outras bibliotecas até 
+            travar o sistema.
+
+            beforeUnmount() é antes de destruir / desmontar
+            unmounted() é quando o componente está efetivamente desmontado = destruido
+
+            para fins desta aula, bastou digitar o código abaixo no console que beforeUnmount() e unmounted() foram executados
+
+                    app2.showComponent = false
+
+            note que na linha 11, o componente 'user' só será usado se showComponent = true que é o valor inicial dele
+            já quando é atribuído o valor 'false', o componente vai se destruir / desmontar
+         -->
     </div>
 
+    <template id="user">
+        <div>Meu componente User</div>
+    </template>
+
     <script src="http://unpkg.com/vue@next"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return{
+                    title: "Meu título",
+                    showComponent: true,
+                }
+            }
+        })
+
+        app.component('user',{
+            template: '#user',
+            beforeUnmount(){
+                console.log('beforeUnmount')
+            },
+            unmounted(){
+                console.log('unmounted')
+            }            
+        });
+
+        const app2 = app.mount('#app');
+    </script>
 </body>
